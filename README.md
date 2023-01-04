@@ -813,7 +813,7 @@ VS Code has a lot of nifty tricks and we try to preserve some of them:
 
 - How can I move the cursor by each display line with word wrapping?
 
-  If you have word wrap on and would like the cursor to enter each wrapped line when using <kbd>j</kbd>, <kbd>k</kbd>, <kbd>↓</kbd> or <kbd>↑</kbd>, set the following in VS Code's keybindings.json settings file.
+  If you have word wrap on and would like the cursor to enter each wrapped line when using <kbd>j</kbd>, <kbd>k</kbd>, <kbd>↓</kbd>, <kbd>↑</kbd>, <kbd>^</kbd>, or <kbd>$</kbd>, set the following in VS Code's keybindings.json settings file.
 
   <!-- prettier-ignore -->
   ```json
@@ -835,6 +835,16 @@ VS Code has a lot of nifty tricks and we try to preserve some of them:
   {
     "key": "j",
     "command": "cursorDown",
+    "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+  },
+  {
+    "key": "shift+6",
+    "command": "cursorHome",
+    "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+  },
+  {
+    "key": "shift+4",
+    "command": "cursorEnd",
     "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
   }
   ```
